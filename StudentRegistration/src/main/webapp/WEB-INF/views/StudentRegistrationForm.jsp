@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-!DOCTYPE html 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -58,30 +57,116 @@
   to {opacity:1 ;}
 }
 </style>
+<script>
+		function validate(){
+		if (document.myForm.student_Name.value==""){
+			alert("Please Enter Your Name!!");
+			document.myForm.student_Name.focus();
+			return false;
+			}
+		if (!/^[a-zA-Z]/.test(document.myForm.student_Name.value)){
+			alert("ERROR CODE 501:Invalid Student Name");
+			document.myForm.student_Name.focus();
+			return false;
+			}
+		if (document.myForm.date_Of_Birth.value==""){
+			alert("Please Enter Date of Birth!!");
+			document.myForm.date_Of_Birth.focus();
+			return false;
+			}
+		if (document.myForm.guardian_Type.value==""){
+			alert("Please Select as Appropriate!!");
+			document.myForm.guardian_Type.focus();
+			return false;
+			}
+		if (document.myForm.guardian_Name.value==""){
+			alert("Please Enter Guardian Name!!");
+			document.myForm.guardian_Name.focus();
+			return false;
+			}
+		if (document.myForm.country_Name.value==""){
+			alert("Please Select as Appropriate!!");
+			document.myForm.country_Name.focus();
+			return false;
+			}
+		if (document.myForm.state_Name.value==""){
+			alert("Please Select as Appropriate!!");
+			document.myForm.state_Name.focus();
+			return false;
+			}
+		if (document.myForm.address.value==""){
+			alert("Please Enter Your Address!!");
+			document.myForm.address.focus();
+			return false;
+			}
+		if (document.myForm.contact_No.value==""){
+			alert("Please Enter contact Number!!");
+			document.myForm.contact_No.focus();
+			return false;
+			}
+		if (document.myForm.contact_No.length!=10){
+			alert("ERROR CODE 506:Invalid Contact No");
+			document.myForm.contact_No.focus();
+			return false;
+			}
+		if (document.myForm.mail_ID.value==""){
+			alert("Please Enter Your Email!!");
+			document.myForm.mail_ID.focus();
+			return false;
+			}
+		if (document.myForm.date_Of_Joining.value==""){
+			alert("Please Enter Date of Joining!!");
+			document.myForm.date_Of_Joining.focus();
+			return false;
+			}
+		if (document.myForm.gender.value==""){
+			alert("Please Select as Appropriate!!");
+			document.myForm.gender.focus();
+			return false;
+			}
+		if (document.myForm.standard.value==""){
+			alert("Please Select as Appropriate!!");
+			document.myForm.standard.focus();
+			return false;
+			}
+		if (document.myForm.transport.value==""){
+			alert("Please Select your Transport Preference!!");
+			document.myForm.transport.focus();
+			return false;
+			}
+			return true;
+		}
+	</script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("h1").css("background-color","pink");
+					});
+			</script>
 </head>
 <body>
 		<h1 align="center">Register Student</h1>
-		<form action="addstudent" method="post" >
+		<form action="addstudent" method="post" name="myForm"  onsubmit="return(validate())">
 			<table cellpadding="2" cellspacing="2" align="center">
 				<tr>
-					<td>NAME</td><td>:</td>
+					<td>NAME<font color="red">*</font></td><td>:</td>
 					<td><input type="text" name="student_Name"></td>
 				</tr>
 				<tr>
-					<td>DATE OF BIRTH</td><td>:</td>
-					<td><input type="text" name="date_Of_Birth"></td>
+					<td>DATE OF BIRTH<font color="red">*</font></td><td>:</td>
+					<td><input type="date" name="date_Of_Birth"></td>
 				</tr>
 				<tr>
-					<td>GUARDIAN TYPE</td><td>:</td>
+					<td>GUARDIAN TYPE<font color="red">*</font></td><td>:</td>
 					<td><input type="radio" name="guardian_Type" value="G">GUARDIAN
 					   <input type="radio" name="guardian_Type" value="P">PARENT <br></td>
 				</tr>
 				<tr>
-					<td>GUARDIAN NAME</td><td>:</td>
+					<td>GUARDIAN NAME<font color="red">*</font></td><td>:</td>
 					<td><input type="text" name="guardian_Name"></td>
 				</tr>
 				<tr>
-					<td>COUNTRY</td><td>:</td>
+					<td>COUNTRY<font color="red">*</font></td><td>:</td>
 					<td><input list ="country_Name" name="country_Name">
 						<datalist id="country_Name">
 							<option value="India">India</option> 
@@ -92,7 +177,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>STATE</td><td>:</td>
+					<td>STATE<font color="red">*</font></td><td>:</td>
 					<td><input list ="state_Name" name="state_Name">
 						<datalist id="state_Name">
 							<option value="TamilNadu">TamilNadu</option> 
@@ -106,29 +191,29 @@
 					</td>
 				</tr>
 				<tr>
-					<td>ADDRESS</td><td>:</td>
+					<td>ADDRESS<font color="red">*</font></td><td>:</td>
 					<td><input type="text" name="address"></td>
 				</tr>
 				<tr>
-					<td>CONTACT NUMBER</td><td>:</td>
+					<td>CONTACT NUMBER<font color="red">*</font></td><td>:</td>
 					<td><input type="number" name="contact_No"></td>
 				</tr>
 				<tr>
-					<td>EMAIL ADDRESS</td><td>:</td>
+					<td>EMAIL ADDRESS<font color="red">*</font></td><td>:</td>
 					<td><input type="Email" name="mail_ID" ></td>
 				</tr>
 				<tr>
-					<td>DATE OF JOINING</td><td>:</td>
-					<td><input type="text" name="date_Of_Joining"></td>
+					<td>DATE OF JOINING<font color="red">*</font></td><td>:</td>
+					<td><input type="date" name="date_Of_Joining"></td>
 				</tr>
 				
 				<tr>
-					<td>GENDER</td><td>:</td>
+					<td>GENDER<font color="red">*</font></td><td>:</td>
 					<td><input type="radio" name="gender" value="F">FEMALE
 					   <input type="radio" name="gender" value="M">MALE</td>
 				</tr>
 				<tr>
-					<td>STANDARD</td><td>:</td>
+					<td>STANDARD<font color="red">*</font></td><td>:</td>
 					<td><input list ="standard" name="standard"><br>
 							<datalist id="standard">
 								<option value="I">STANDARD I</option> 
@@ -147,7 +232,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>TRANSPORTATION</td><td>:</td>
+					<td>TRANSPORTATION<font color="red">*</font></td><td>:</td>
 					<td><input type="radio" name="transport" value="Y">YES
 					   <input type="radio" name="transport" value="N">NO</td>
 				</tr>
